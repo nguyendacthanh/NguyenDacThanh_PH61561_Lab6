@@ -7,7 +7,7 @@ public class Main :MonoBehaviour
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator animator;
-
+    
 
     public GameObject arrow;
     public float arrowSpeed = 5f;
@@ -29,14 +29,16 @@ public class Main :MonoBehaviour
         {
             SpawnArrow();
             animator.SetTrigger("active");
+            
         }
 
     }
     void SpawnArrow()
     {
         GameObject arrows = Instantiate(arrow, spawnPoint.position, Quaternion.identity);
-
-
-
+        Rigidbody2D muiten= arrows.GetComponent<Rigidbody2D>();
+        if (arrow!=null) { 
+            muiten.linearVelocity= new Vector2 (5f,0);
+        }
     }
 }
